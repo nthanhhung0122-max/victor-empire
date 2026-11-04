@@ -1,4 +1,4 @@
-name: Auto Victor Empire 24/7
+name: Auto Victor Empire & Gold Vault 24/7
 
 on:
   workflow_dispatch:
@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  run-victor:
+  run-combo:
     runs-on: ubuntu-latest
     timeout-minutes: 350
 
@@ -28,9 +28,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests telethon colorama
 
-      - name: Chay Auto Victor Empire (Acc 1 & Acc 2)
+      - name: Chay Combo Victor Empire & Gold Vault 24/7
         env:
           PYTHONUNBUFFERED: "1"
           PYTHONIOENCODING: "utf-8"
         run: |
-          python auto_victor.py
+          python auto_victor_goldvault.py
