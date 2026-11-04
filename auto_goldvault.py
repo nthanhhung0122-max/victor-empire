@@ -126,8 +126,9 @@ def process_account(acc):
         if b_code == 200 and isinstance(b_res, dict) and b_res.get('ok'):
             log("SHOP", f"[{name}] ✅ Mua cuốc thành công! Tăng tốc độ đào.", Fore.GREEN)
 
-def run_once():
-    for acc in ACCOUNTS:
+def run_once(target_acc=None):
+    accs = [a for a in ACCOUNTS if target_acc is None or a['name'].startswith(f'Acc {target_acc}')]
+    for acc in accs:
         if acc['session']:
             process_account(acc)
             print("-" * 50, flush=True)
